@@ -5,8 +5,81 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HW_01_Final"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="HW-01" Height="1200" Width="1200">
     <Grid>
         
+        <TabControl>
+            <TabItem Header="UI Elements" FontSize="30" Background="Gray">
+                <TextBlock Foreground="White" Background="Black">
+                    <TextBlock  Text="This is various UI elements, with some Type converters hiding inside!"/>
+                    <LineBreak/><LineBreak/>
+                    <TextBlock Foreground="Red" Text="Hi, I'm a TextBlock, in a sneaky RED color"/>
+                    <LineBreak/><LineBreak/>
+                    <Button Height="100" Width="500" Background="DarkGreen" Foreground="Magenta" Content="Hi I'm a button CLICK ME"/>
+                    <LineBreak/><LineBreak/>
+                    <ListBox Background="BlanchedAlmond">
+                        <ListBoxItem Foreground="Purple" Content="I'm the first item in a ListBox"/>
+                        <ListBoxItem Foreground="MediumPurple" Content="I'm the second item in a ListBox"/>
+                        <ListBoxItem Foreground="Violet" Content="And I'm the third item"/>
+                     </ListBox>
+                    <LineBreak/><LineBreak/>
+                    <TextBlock Foreground="White" Text="Two groups of Radio Buttons"/>
+                    <LineBreak/><LineBreak/>
+                    <RadioButton GroupName="Group1" Content ="Radio Button Option1  " Foreground="Red" Background="White" IsChecked="True"/>
+                    <RadioButton GroupName="Group1" Content ="Radio Button Option2  " Foreground="Red" Background="White" IsChecked="False"/>
+                    <RadioButton GroupName="Group1" Content ="Radio Button Option3  " Foreground="Red" Background="White" IsChecked="False"/>
+                    <LineBreak/>
+                    
+                    <RadioButton GroupName="Group2" Content ="Radio Button Option3  " Foreground="Green" Background="Yellow" IsChecked="False"/>
+                    <RadioButton GroupName="Group2" Content ="Radio Button Option3  " Foreground="Green" Background="Yellow" IsChecked="True"/>
+                    <RadioButton GroupName="Group2" Content ="Radio Button Option3  " Foreground="Green" Background="Yellow" IsChecked="False"/>
+                    <LineBreak/><LineBreak/>
+                    <TextBlock Foreground="White" Text="Finally a password Block"/>
+                    <LineBreak/><LineBreak/>
+                    <PasswordBox Height="40" Width="200" PasswordChar="*" Background="MistyRose" Foreground="Firebrick" Password="dfdadfsdafadsf&#x9;"/>
+                    
+                </TextBlock>
+            </TabItem>
+            <TabItem Header="Type Converters" FontSize="30" Background="Gray">
+                <TextBlock Foreground="White" Background="DodgerBlue">
+                    Here we have some Type Converters
+                    <LineBreak/>
+                    Though clearly the UI elements had a few of those as well.
+                    <LineBreak/><LineBreak/>
+                    If we were to code the background color of 'Dodger Blue' on this page in C#
+                    <LineBreak/>
+                    We would take the TextBlock element (say "b") and type the following:
+                    <LineBreak/><LineBreak/>
+                    <Bold>b.Background = System.Windows.Media.Brushes.White;</Bold>
+                    <LineBreak/><LineBreak/>
+                    Instead, we were able to exploit the compilers <Bold>Type Converter</Bold> and simply
+                    <LineBreak/>
+                    type "Background="DodgerBlue".
+                </TextBlock> 
+            </TabItem>
+            <TabItem Header="MarkUp Extension" FontSize="30" Background="Gray">
+                <TextBlock Foreground="Yellow" Background="DarkMagenta">
+                    MarkUps enable you to extend the expressiveness of XAML
+                    <LineBreak/>
+                    The books example Height="{x:Static SystemParameters.IconHeight}" uses
+                    <LineBreak/>
+                    a system parameter to define the height. 
+                    <LineBreak/><LineBreak/>
+                    Here is the button from the books example:
+                    <LineBreak/><LineBreak/>
+                    <Button FontSize="20" Width="50" Foreground="Yellow"
+                            Background="{x:Null}" 
+                            Height="{x:Static SystemParameters.IconHeight}"
+                            Content="{Binding Path=Height, RelativeSource={RelativeSource Self}}"/>
+                    <LineBreak/><LineBreak/>
+                    It looks kind of ugly, but exploits markup extensions by using derived values for 
+                    <LineBreak/>
+                    Height, Content, and Background Color
+
+
+
+                </TextBlock>
+            </TabItem>
+        </TabControl>
     </Grid>
 </Window>
